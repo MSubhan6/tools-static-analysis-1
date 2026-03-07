@@ -39,7 +39,7 @@ If you don't have a codebase to analyze, download sample projects:
 # List available datasets (C# and Java projects)
 python bootstrap-demo-datasets.py --list
 
-# Download all demo datasets (~300MB total)
+# Download all demo datasets (~345MB total)
 python bootstrap-demo-datasets.py --all
 
 # Download only C# datasets (eShop, OrchardCore)
@@ -52,14 +52,14 @@ python bootstrap-demo-datasets.py --java
 python bootstrap-demo-datasets.py --csharp eshop --java spring-petclinic
 ```
 
-Datasets are cloned to your home directory by default. Use `--output` to specify a different location.
-
 **Available datasets:**
 - **eShop** - Microsoft's reference .NET eCommerce application (~50MB)
 - **OrchardCore** - Modular ASP.NET Core CMS framework (~100MB)
 - **Spring PetClinic** - Classic Spring Boot sample application (~5MB)
 - **Ta4j** - Java technical analysis library for trading (~10MB)
 - **Cassandre** - Spring Boot trading bot framework (~30MB)
+
+📖 **See [BOOTSTRAP_README.md](BOOTSTRAP_README.md) for detailed documentation, use cases, and troubleshooting.**
 
 ### 1. Start the companion agent (required for IDE integration)
 
