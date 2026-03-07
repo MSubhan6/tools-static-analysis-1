@@ -1615,15 +1615,15 @@ def main():
         logger.info(f"Starting HTTP transport on port {port}")
         logger.info(f"Companion download available at: http://localhost:{port}/companion/download")
 
-        # Add custom route for companion download
+        # Add custom routes for companion download
         from fastapi import Response
         from fastapi.responses import FileResponse
         import zipfile
         import io
         import os
 
-        @mcp.app.get("/companion/download")
-        async def download_companion():
+        @mcp.custom_route("/companion/download", methods=["GET"])
+        async def download_companion(request):
             """Serve companion server ZIP file for download."""
             try:
                 # Create ZIP in memory
@@ -1651,8 +1651,8 @@ def main():
                 logger.error(f"Failed to create companion download: {e}")
                 return {"error": str(e)}
 
-        @mcp.app.get("/companion/install.sh")
-        async def download_installer():
+        @mcp.custom_route("/companion/install.sh", methods=["GET"])
+        async def download_installer(request):
             """Serve installer script."""
             installer_path = config.project_root / "install-companion.sh"
             if installer_path.exists():
